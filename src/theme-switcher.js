@@ -17,16 +17,19 @@ export default () => {
   });
 };
 
+const bodyAddClass = (classToAdd, classToRemove) => {
+  bodyRef.classList.add(classToAdd);
+  bodyRef.classList.remove(classToRemove);
+};
+
 const setDarkTheme = () => {
   localStorage.setItem('isChecked', true);
-  bodyRef.classList.add(availableThemes.dark);
-  bodyRef.classList.remove(availableThemes.light);
+  bodyAddClass(availableThemes.dark, availableThemes.light);
 };
 
 const setLightTheme = () => {
   localStorage.setItem('isChecked', false);
-  bodyRef.classList.add(availableThemes.light);
-  bodyRef.classList.remove(availableThemes.dark);
+  bodyAddClass(availableThemes.light, availableThemes.dark);
 };
 
 if (isSwitcherChecked) {
